@@ -4,9 +4,9 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
  
 app.config['MYSQL_HOST'] = 'db'
-app.config['MYSQL_USER'] = 'root' #needs to match the docker-compose file? 
+app.config['MYSQL_USER'] = 'root' 
 app.config['MYSQL_PASSWORD'] = 'root'
-app.config['MYSQL_DB'] = 'pav' # This needs to connect to mysql docker container
+app.config['MYSQL_DB'] = 'pav' 
  
 mysql = MySQL(app)
  
@@ -23,9 +23,7 @@ def index():
         cur.close()
         return 'success'
     return render_template('index.html')
- 
- # Thing above only takes info from the text fields and inserts them into table.
- # Need to add antother flask route ('/users') to return the contents of the table. (SELECT * FROM user)
+
  
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
